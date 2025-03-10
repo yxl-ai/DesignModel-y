@@ -25,4 +25,8 @@ public class MyFruitStore {
         MyFruit fruit= (MyFruit) fruittable.get(key);
         return (MyFruit)fruit.clone();
     }
+
+    public MyFruit get(int i) {
+        return null;
+    }
 }
