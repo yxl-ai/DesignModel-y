@@ -1,4 +1,7 @@
 package prototypemode;
 
-public class Apple {
+public class Apple extends MyFruit{
+    public Apple(){
+        kind = "Apple";
+    }
 }
