@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+package "adaptermode" {
+    class Adapter {
+        +newPort(MyFruit fruit1, MyFruit fruit2): String
+    }
+    class Oldjuicer {
+        +onePort(MyFruit fruit): String
+    }
+    interface InewJuicer {
+        +newPort(MyFruit fruit1, MyFruit fruit2): String
+    }
+    Adapter <|-- Oldjuicer
+    Adapter : implements InewJuicer
+}
+package "prototypemode" {
+    class MyFruit
+    class MyFruitStore
+}
+@enduml

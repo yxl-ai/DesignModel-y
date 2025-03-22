@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+package bridgeMode {
+    interface Color {
+        + bepaint(String penType, String name)
+    }
+
+    class Blue implements Color {
+        + bepaint(String penType, String name)
+    }
+
+    class Red implements Color {
+        + bepaint(String penType, String name)
+    }
+
+    abstract class Pen {
+        - Color color
+        + abstract draw(String name)
+        + setColor(Color color)
+    }
+
+    class SmallPen extends Pen {
+        + draw(String name)
+    }
+
+    class BigPen extends Pen {
+        + draw(String name)
+    }
+
+    class MiddlePen extends Pen {
+        + draw(String name)
+    }
+
+    class XMLUtilPen {
+        + XMLUtilPen()
+        + static Object getBean(String kind)
+    }
+
+    class Client {
+        + main(String[] args)
+    }
+
+    Pen *-- Color : composition
+    Client ..> XMLUtilPen : uses
+    Client ..> Pen : uses
+    Client ..> Color : uses
+}
+@enduml

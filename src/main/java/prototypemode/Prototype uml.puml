@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+
+package prototypemode {
+    class MyFruit {
+        - String kind
+        + void Display()
+        + Object clone()
+    }
+
+    class Apple {
+        + Apple()
+    }
+
+    class Banana {
+        + Banana()
+    }
+
+    class MyFruitStore {
+        - static Hashtable<Integer, MyFruit> fruittable
+        - static MyFruitStore fruitStore
+        + static MyFruitStore Getfruitstore()
+        + void Add(Integer key, MyFruit fruit)
+        + MyFruit Get(Integer key)
+        + MyFruit get(int i)
+    }
+
+    MyFruit <|-- Apple
+    MyFruit <|-- Banana
+    MyFruitStore *-- MyFruit : contains
+
+}
+
+@enduml

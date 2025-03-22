@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+package commode {
+    abstract class MyElement {
+        + abstract void eat()
+    }
+
+    class Apple {
+        + void eat()
+    }
+
+    class Banana {
+        + void eat()
+    }
+
+    class Pear {
+        + void eat()
+    }
+
+    class Plate {
+        - ArrayList list
+        + void eat()
+        + void add(MyElement element)
+        + void delete(MyElement element)
+    }
+
+    class Client {
+        + static void main(String[] args)
+    }
+
+    Apple --|> MyElement
+    Banana --|> MyElement
+    Pear --|> MyElement
+    Plate --|> MyElement
+    Client --> MyElement : uses
+    Client --> Plate : uses
+    Plate *-- MyElement : contains
+}
+@enduml

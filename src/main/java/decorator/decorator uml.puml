@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+' 定义包
+package decorator {
+    ' 定义接口
+    interface IBirthdayCake {
+        + show()
+    }
+
+    ' 定义具体类
+    class Cake {
+        + Cake()
+        + show()
+    }
+
+    class Decorating {
+        - IBirthdayCake birthdayCake
+        + Decorating(IBirthdayCake birthdayCake)
+        + show()
+    }
+
+    class Cream {
+        + Cream(IBirthdayCake birthdayCake)
+        + putCream()
+    }
+
+    class Fruit {
+        + Fruit(IBirthdayCake birthdayCake)
+        + putFruit()
+    }
+
+    class Client {
+        + main(String[] args)
+    }
+
+    ' 实现关系
+    Cake --|> IBirthdayCake
+    Decorating --|> IBirthdayCake
+
+    ' 继承关系
+    Cream --|> Decorating
+    Fruit --|> Decorating
+
+    ' 依赖关系
+    Client ..> IBirthdayCake
+    Client ..> Cream
+    Client ..> Fruit
+    Cream ..> IBirthdayCake
+    Fruit ..> IBirthdayCake
+    Decorating *-- IBirthdayCake
+}
+@enduml
