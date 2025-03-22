@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+class Person {
+    - name: String
+    - age: int
+    + getName(): String
+    + getAge(): int
+    + setName(name: String): void
+    + setAge(age: int): void
+}
+
+class Student {
+    - studentId: String
+    + getStudentId(): String
+    + setStudentId(studentId: String): void
+}
+
+Person <|-- Student
+@enduml
